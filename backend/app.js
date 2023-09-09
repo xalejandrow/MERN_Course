@@ -6,7 +6,7 @@ require('dotenv/config');
 const api = process.env.API_URL;
 
 //  http://localhost:3000/api/v1/products
-app.get(api+'/', (req, res)=>{
+app.get(api+'/products', (req, res)=>{
     res.send('Hello API!');
 })
 
