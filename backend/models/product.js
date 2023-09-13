@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const productSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
     },
     description: {
         type: String,
@@ -41,19 +41,19 @@ const productSchema = mongoose.Schema({
     },
     rating: {
         type: Number,
-        default: 0
+        default: 0,
     },
     numReviews: {
         type: Number,
-        default: 0
+        default: 0,
     },
     isFeatured: {
         type: Boolean,
-        default: false
+        default: false,
     },
     dateCreated: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
 })
 

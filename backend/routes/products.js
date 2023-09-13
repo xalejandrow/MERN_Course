@@ -13,6 +13,7 @@ router.get(`/`, async (req, res) =>{
          filter = {category: req.query.categories.split(',')}
     }
 
+    // const productList = await Product.find().select('name image -_id');
     const productList = await Product.find(filter).populate('category');
 
     if(!productList) {
@@ -100,7 +101,8 @@ router.delete('/:id', (req, res)=>{
 })
 
 router.get(`/get/count`, async (req, res) =>{
-    const productCount = await Product.countDocuments((count) => count)
+    // const productCount = await Product.countDocuments((count) => count) //deprecated
+    const productCount = await Product.countDocuments({}, { hint: "_id_" })
 
     if(!productCount) {
         res.status(500).json({success: false})
