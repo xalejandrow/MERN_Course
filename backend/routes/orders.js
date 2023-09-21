@@ -41,6 +41,13 @@ router.post('/', async (req,res)=>{
     }))
     const orderItemsIdsResolved = await orderItemsIds;
     // console.log(orderItemsIdsResolved);
+    const totalPrices = await Promise.all(orderItemsIdsResolved.map(async (orderItemId)=>{
+        const orderItem = await OrderItem.findById(orderItemId).populate('product', 'price');
+        const totalPrice = orderItem.product.price * orderItem.quantity;
+        return totalPrice
+    }))
+
+    const totalPrice = totalPrices.reduce((a,b) => a +b , 0);
 
     let order = new Order({
         orderItems: orderItemsIdsResolved,
@@ -51,7 +58,7 @@ router.post('/', async (req,res)=>{
         country: req.body.country,
         phone: req.body.phone,
         status: req.body.status,
-        // totalPrice: totalPrice,
+        totalPrice: totalPrice,
         user: req.body.user,
     })
    
