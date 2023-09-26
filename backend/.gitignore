@@ -131,3 +131,4 @@ dist
 
 ../easy-shop/
 .env
+public/uploads
