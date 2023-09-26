@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
     //   const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
     //   cb(null, file.fieldname + '-' + uniqueSuffix)
         const fileName = file.originalname.split(' ').join('-'); 
-        cb(null, fileName + '-' + Date.now())
+        cb(null, `${fileName}-${Date.now()}.${extension}`)
     }
   })
   
@@ -56,7 +56,7 @@ router.post(`/`, uploadOptions.single('image'), async (req, res) =>{
         name: req.body.name,
         description: req.body.description,
         richDescription: req.body.richDescription,
-        image: `${basePath}${fileName}`,
+        image: `${basePath}${fileName}`, //"http://localhost:3000/public/upload/image-2323232"
         brand: req.body.brand,
         price: req.body.price,
         category: req.body.category,
