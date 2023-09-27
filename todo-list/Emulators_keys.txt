@@ -1,0 +1,5 @@
+Android:
+    Reload: CMD + m
+
+IOs:
+    Reload: Ctrl + CMC + z
