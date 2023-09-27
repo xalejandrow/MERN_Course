@@ -4,7 +4,7 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 const Todo = (props) => {
     return(
         <View style={[{ margin: 8, padding: 8}, styles.item ]}>
-            <Text>{props.name}</Text>
+            <Text>{props.item}</Text>
         </View>
     )
 }
