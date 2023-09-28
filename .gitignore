@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 todo-list/
+backend/
+example_code/
