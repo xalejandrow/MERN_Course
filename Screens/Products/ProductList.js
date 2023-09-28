@@ -1,22 +1,22 @@
-import React from "react";
-import { TouchableOpacity, View, Dimensions, Touchable } from "react-native";
-import ProductCard from "./ProductCard";
-
-var { width } = Dimensions.get("window");
-
+import React from 'react';
+import { TouchableOpacity, View, Dimensions, Touchable } from 'react-native'
+import ProductCard from './ProductCard'
+ 
+let { width } = Dimensions.get('window');
+ 
+ 
 const ProductList = (props) => {
-
-    const {item} = props;
-    return(
-        <TouchableOpacity style={{ width: '50%'}}>
-            <View style={{ width: width / 2,
-                            backgroundColor: 'gainsboro'}}>
-            <ProductCard {...item}/>
-
+    const { item } = props;
+    return (
+        <TouchableOpacity style={{ width: '50%' }}>
+            <View style={{
+                width: width / 2,
+                backgroundColor: 'gainsboro'
+            }}>
+                <ProductCard {...item} />
             </View>
-
         </TouchableOpacity>
     )
 }
-
+ 
 export default ProductList;
