@@ -24,5 +24,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
+  "overrides": { "native-base": { "@codler/react-native-keyboard-aware-scroll-view": "2.0.1" } },
   "private": true
 }
