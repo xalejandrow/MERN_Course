@@ -3,7 +3,7 @@ import { View, StyleSheet, ActivityIndicator, FlatList } from 'react-native'
 import { Container, Header, Icon, Item, Input, Text, NativeBaseProvider } from 'native-base';
 
 import ProductList from './ProductList'
-import SearchProduct from './SearchProducts';
+import SearchedProduct from './SearchedProducts';
 
 const data = require('../../assets/data/products.json')
  
@@ -15,7 +15,7 @@ const data = require('../../assets/data/products.json')
 const ProductContainer = () => {
  
     const [products, setProducts] = useState([]);
-    const [productsFilter, setProductsFiltered] = useState([]);
+    const [productsFiltered, setProductsFiltered] = useState([]);
     const [focus, setFocus] = useState();
  
     useEffect(() => {
@@ -54,12 +54,16 @@ const ProductContainer = () => {
                         onFocus={openList}
                         onChangeText={(text) => searchProduct(text)}
                     />
+                    {focus==true ? (
+                        <Icon onPress={onBlur} name="ios-close"/>
+                    ): null}
+
                 </Item>
 
             </Header>
             {focus == true ? (
-                <SearchProduct
-                    setProductsFiltered={productsFilter}
+                <SearchedProduct
+                    productsFiltered={productsFiltered}
                 />
             ) : (
                 <View>

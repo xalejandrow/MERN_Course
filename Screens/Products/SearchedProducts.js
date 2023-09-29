@@ -4,7 +4,7 @@ import { Content, Left, Body, ListItem, Thumbnail, Text } from 'native-base';
 
 var { width } = Dimensions.get('window')
 
-const SearchProduct = (props) => {
+const SearchedProduct = (props) => {
     const { productsFiltered } = props;
     return(
         <Content style={{width: width}}>
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 })
-export default SearchProduct;
+export default SearchedProduct;
