@@ -8,7 +8,7 @@ const SearchedProduct = (props) => {
     const { productsFiltered } = props;
     return(
         <Content style={{ width: width }}>
-            {productsFiltered?.length > 0 ? (
+            {productsFiltered.length > 0 ? (
                 productsFiltered.map((item) => (
                     <ListItem
                         onPress={() => {
@@ -33,7 +33,7 @@ const SearchedProduct = (props) => {
             ) : (
                 <View style={styles.center}>
                     <Text style={{ alignSelf:  'center' }}>
-                       Aucun produit ne correspond aux criteres
+                    No products match the selected criteria
                     </Text>
                 </View>
             )}

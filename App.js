@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, LogBox } from 'react-native';
 
 // Screens
 import Header from './Shared/Header';
 import ProductContainer from './Screens/Products/ProductContainer'
 
+LogBox.ignoreAllLogs(true);
 
 export default function App() {
   return (

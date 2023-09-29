@@ -4,6 +4,7 @@ import ProductList from './ProductList'
  
 import {Container,Header,Icon,item,Input,Text, Item} from 'native-base'
 import SearchedProduct from './SearchedProducts';
+import Banner from '../../Shared/Banner';
  
 const data=require('../../assets/data/products.json');
  
@@ -41,7 +42,7 @@ const onBlur = ()=>{
             <Header searchBar rounded>
                 <Item>
                     <Icon name ="ios-search"/>
-                    <Input placeholder="Rechercher"
+                    <Input placeholder="Search"
                     onFocus={openList}
                     onChangeText={(text)=>searchProduct(text)}
                     
@@ -58,20 +59,23 @@ const onBlur = ()=>{
                 />
  
             ) : (
-                <View>     
-           <View style ={{marginTop:100,marginBottom:150}}>
-           <FlatList
-           numColumns={2}
-           data={products}
-           renderItem={({item})=>
-                <ProductList
-                   key={item.id}
-                   item={item}
-                   />}
-           keyExtractor={item=>item.name}
-           />
-           </View>
-       </View>
+                <View>
+                    <View>
+                        <Banner/>
+                    </View>     
+                    <View style ={{marginTop:100,marginBottom:150}}>
+                    <FlatList
+                    numColumns={2}
+                    data={products}
+                    renderItem={({item})=>
+                            <ProductList
+                            key={item.id}
+                            item={item}
+                            />}
+                    keyExtractor={item=>item.name}
+                    />
+                    </View>
+                </View>
             )}
             
         </Container>
