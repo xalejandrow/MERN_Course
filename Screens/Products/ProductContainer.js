@@ -27,7 +27,7 @@ const ProductContainer= ()=>{
  
     const searchProduct=(text)=>{
         setProductsFiltered(
-            products.filter((i)=>i.name.toLowerCase().includes(text.toLowerCase))
+            products.filter((i)=>i.name.toLowerCase().includes(text.toLowerCase()))
         )
     }
 const openList = ()=>{
