@@ -5,23 +5,37 @@ import ProductList from './ProductList'
 import {Container,Header,Icon,item,Input,Text, Item} from 'native-base'
 import SearchedProduct from './SearchedProducts';
 import Banner from '../../Shared/Banner';
+import CategoryFilter from './CategoryFilter';
  
 const data=require('../../assets/data/products.json');
+const categories=require('../../assets/data/categories.json');
  
 const ProductContainer= ()=>{
  
     const [products,setProducts ]=useState([]);
     const [productsFiltered, setProductsFiltered]=useState([])
     const [focus,setFocus]=useState();
+    const [categories, setCategories]= useState([]);
+    const [active, setActive]= useState()
+    const [initialState, setInitialState]= useState([])
+
+
     
     useEffect(()=>{
         setProducts(data);
         setProductsFiltered(data);
         setFocus(false);
+        setCategories(categories);
+        setActive(-1);
+        setInitialState(data)
+
         return()=>{
             setProducts([])
             setProductsFiltered([])
             setFocus()
+            setCategories([])
+            setActive()
+            setInitialState([])
         }
     },[])
  
@@ -62,6 +76,9 @@ const onBlur = ()=>{
                 <View>
                     <View>
                         <Banner/>
+                    </View>
+                    <View>
+                        <CategoryFilter/>
                     </View>     
                     <View style ={{marginTop:100,marginBottom:150}}>
                     <FlatList
