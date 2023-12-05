@@ -8,7 +8,7 @@ import Banner from '../../Shared/Banner';
 import CategoryFilter from './CategoryFilter';
  
 const data=require('../../assets/data/products.json');
-const categories=require('../../assets/data/categories.json');
+const productsCategories=require('../../assets/data/categories.json');
  
 const ProductContainer= ()=>{
  
@@ -16,6 +16,7 @@ const ProductContainer= ()=>{
     const [productsFiltered, setProductsFiltered]=useState([])
     const [focus,setFocus]=useState();
     const [categories, setCategories]= useState([]);
+    const [productsCtg, setProductsCtg]= useState([]); 
     const [active, setActive]= useState()
     const [initialState, setInitialState]= useState([])
 
@@ -25,7 +26,7 @@ const ProductContainer= ()=>{
         setProducts(data);
         setProductsFiltered(data);
         setFocus(false);
-        setCategories(categories);
+        setCategories(productsCategories);
         setActive(-1);
         setInitialState(data)
 
@@ -49,6 +50,20 @@ const openList = ()=>{
 }
 const onBlur = ()=>{
     setFocus(false);
+}
+
+// Categories
+const changeCategory = (ctg) => {
+    {
+        ctg === 'all'
+        ? [setProductsCtg(initialState), setActive(true)]
+        : [
+            setProductsCtg(
+                products.filter((i) => i.categoty.id === ctg),
+                setActive(true)
+            ),
+        ];
+    }
 }
  
     return(
@@ -78,7 +93,13 @@ const onBlur = ()=>{
                         <Banner/>
                     </View>
                     <View>
-                        <CategoryFilter/>
+                        <CategoryFilter 
+                            categories={categories}
+                            CategoryFilter={productsCtg}
+                            productsCtg={productsCtg}
+                            active={active}
+                            setActive={setActive}
+                        />
                     </View>     
                     <View style ={{marginTop:100,marginBottom:150}}>
                     <FlatList
