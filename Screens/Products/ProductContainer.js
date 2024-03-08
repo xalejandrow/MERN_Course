@@ -12,7 +12,7 @@ var { height } = Dimensions.get("window")
 const data = require('../../assets/data/products.json');
 const productsCategories = require('../../assets/data/categories.json');
  
-const ProductContainer = () => {
+const ProductContainer = (props) => {
  
     const [products, setProducts] = useState([]);
     const [productsFiltered, setProductsFiltered] = useState([]);
@@ -90,6 +90,7 @@ const ProductContainer = () => {
             </Header>
             {focus == true ? (
                 <SearchedProducts
+                    navigation={props.navigation}
                     productsFiltered={productsFiltered}
  
                 />
@@ -113,6 +114,7 @@ const ProductContainer = () => {
                             {productsCtg.map((item) => {
                                 return(
                                     <ProductList 
+                                        navigation={props.navigation}
                                         key={item._id.$oid}
                                         item={item}
                                     />
