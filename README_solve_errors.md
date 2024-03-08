@@ -35,3 +35,11 @@ scrollToEnd = (animated?: boolean = true) => {
   }
   // responder && responder.scrollResponderScrollToEnd({ animated })
 }
+
+
+Section 11 React Navigation:
+ Dependencies
+  - npm install @react-navigation/native
+  - npx expo install react-native-screens react-native-safe-area-context
+  - npm install react-native-screens react-native-safe-area-context
+  
