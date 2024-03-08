@@ -42,4 +42,20 @@ Section 11 React Navigation:
   - npm install @react-navigation/native
   - npx expo install react-native-screens react-native-safe-area-context
   - npm install react-native-screens react-native-safe-area-context
-  
+
+
+Install
+  -  sudo npm i -g expo-cli
+  -  npm install @react-navigation/native
+  -  npx expo install react-native-screens react-native-safe-area-context
+  -  npm install react-native-screens react-native-safe-area-context
+  -  npx pod-install ios
+  -  expo install react-native-gesture-handler
+  -  expo install react-native-reanimated
+  -  expo install react-native-screens
+  -  expo install react-native-safe-area-context
+  -  expo install @react-native-community/masked-view
+  -  npm install @react-navigation/native @react-navigation/bottom-tabs
+  -  npx expo install --fix
+  -  npm install react-native-vector-icons
+  -  npm i @react-navigation/stack
